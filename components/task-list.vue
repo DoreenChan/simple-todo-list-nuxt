@@ -2,7 +2,7 @@
   <div class="panel-block field has-addons">
     <p class="control is-expanded">
       <label class="checkbox">
-        <input type="checkbox" @change="toggle($event)">{{task.text}}
+        <input type="checkbox" @change="toggle({task, $event})">{{task.text}}
       </label>
     </p>
     <p class="control">
