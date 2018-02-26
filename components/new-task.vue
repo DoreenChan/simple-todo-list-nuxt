@@ -7,7 +7,7 @@
       </span>
     </p>
     <p class="control">
-      <a @click="submit()" class="button is-primary">Add</a>
+      <a @click="submit" class="button is-primary">Add</a>
     </p>
   </div>
 </template>
@@ -21,21 +21,15 @@ export default {
   },
   methods: {
     submit() {
-      if (this.validateInput()) {
-        this.$emit('submitted', this.task)
-      } else {
-      }
-    },
-    validateInput() {
       this.$store.commit('notification/clear')
       if (!this.task) {
         this.$store.commit('notification/show', {
           text: 'Task is required.',
           style: 'is-danger'
         })
+      } else {
+        this.$emit('submitted', this.task)
       }
-      if (!this.$store.state.notification.message) return true
-      return false
     }
   }
 }
