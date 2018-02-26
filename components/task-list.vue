@@ -1,7 +1,9 @@
 <template>
   <div class="panel-block field has-addons">
     <p class="control is-expanded">
-      <input type="checkbox" @change="toggle(task.done)">{{task.text}}
+      <label class="checkbox">
+        <input type="checkbox" @change="toggle(task)">{{task.text}}
+      </label>
     </p>
     <p class="control">
       <a class="delete" @click="remove(task)"></a>

@@ -11,10 +11,13 @@ export const mutations = {
     remove(state, task) {
         state.list.splice(state.list.indexOf(task), 1)
     },
-    toggle(state, done) {
-        done = !done
-            // if (done) {
-
-        // }
+    toggle(state, task) {
+        task.done = !task.done
+        if (task.done) {
+            this.commit('notification/show', {
+                text: 'Congratulations! You have completed a task.',
+                style: 'is-success'
+            })
+        }
     }
 }
