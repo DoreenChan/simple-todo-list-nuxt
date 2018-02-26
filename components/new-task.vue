@@ -1,13 +1,13 @@
 <template>
   <div class="panel-block field has-addons">
     <p class="control has-icons-left">
-      <input name="task" id="task" v-model="task" v-on:keyup.enter="submit" class="input" type="text" placeholder="New Task">
+      <input name="task" id="task" v-model="task" @keyup.enter="submit" class="input" type="text" placeholder="New Task">
       <span class="icon is-small is-left">
         <i class="fas fa-file-alt"></i>
       </span>
     </p>
     <p class="control">
-      <a v-on:click="submit()" class="button is-primary">Add</a>
+      <a @click="submit()" class="button is-primary">Add</a>
     </p>
   </div>
 </template>
@@ -20,13 +20,13 @@ export default {
     }
   },
   methods: {
-    submit: function() {
+    submit() {
       if (this.validateInput()) {
         this.$emit('submitted', this.task)
       } else {
       }
     },
-    validateInput: function() {
+    validateInput() {
       this.$store.commit('notification/clear')
       if (!this.task) {
         this.$store.commit('notification/show', {

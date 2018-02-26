@@ -16,7 +16,7 @@ export default {
     }
   },
   methods: {
-    clear: function() {
+    clear() {
       this.$store.commit('notification/clear')
     }
   }
