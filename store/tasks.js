@@ -11,9 +11,9 @@ export const mutations = {
     remove(state, task) {
         state.list.splice(state.list.indexOf(task), 1)
     },
-    toggle(state, task) {
-        task.done = !task.done
-        if (task.done) {
+    toggle(state, params) {
+        params.task.done = params.$event.target.checked
+        if (params.task.done) {
             this.commit('notification/show', {
                 text: 'Congratulations! You have completed a task.',
                 style: 'is-success'

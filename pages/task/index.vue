@@ -20,14 +20,14 @@ export default {
     NewTask,
     TaskList
   },
+  data() {
+    return {
+      tasks: this.$store.state.tasks.list
+    }
+  },
   methods: {
     submit(task) {
       this.$store.commit('tasks/add', task)
-    }
-  },
-  computed: {
-    tasks() {
-      return this.$store.state.tasks.list
     }
   }
 }
